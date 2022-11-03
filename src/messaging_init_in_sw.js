@@ -30,7 +30,7 @@ getToken(messaging,{vapidKey:"BDx-yTB0rUkMTLgad-2fOpA2OHYyteiChHKqQArrbgHUQs76vJ
     console.log('currentToken',currentToken)
 	var url = new URL(window.location.href);
 	var id = url.searchParams.get("id");
-	alert("id");
+	alert(id);
   }else{
     console.log('cannot get');
   }
