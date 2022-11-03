@@ -28,6 +28,9 @@ function requestPermission() {
 getToken(messaging,{vapidKey:"BDx-yTB0rUkMTLgad-2fOpA2OHYyteiChHKqQArrbgHUQs76vJXVBLNxiF-lPaYysIk9e-j5r4ZjiRrn3AYJN7g"}).then((currentToken) => {
   if(currentToken){
     console.log('currentToken',currentToken)
+	var url = new URL(location.href);
+	var id = url.searchParams.get("id");
+	alert("id");
   }else{
     console.log('cannot get');
   }
