@@ -30,37 +30,30 @@ function requestPermission() {
           console.log("currentToken", currentToken);
           var url = new URL(window.location.href);
           var userid = url.searchParams.get("userid");
-          let user = {};
-          user = {
-            userid: userid,
-            browsertoken: currentToken,
-          };
-          let options = {
+
+          var formdata = new FormData();
+
+          formdata.append("userid", userid);
+          formdata.append("browsertoken", currentToken);
+
+          var requestOptions = {
             method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-            },
-            body: JSON.stringify(user),
+            body: formdata,
+            redirect: "follow",
           };
-          // Storing Token against userid in notification_registration
-          let fetchRes = fetch(
+
+          fetch(
             "https://seatvnetwork.com/api/insertBrowserRegistration",
-            options
-          );
-          fetchRes
-            .then((res) => res.json())
-            .then((d) => {
-              console.log(d);
-              alert("done");
-            });
+            requestOptions
+          )
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
         } else {
-          console.log("cannot get");
+          console.log("no permisssion");
         }
       });
-    } else {
-      console.log("no permisssion");
     }
   });
 }
-
 requestPermission();
