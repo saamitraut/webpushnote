@@ -7,13 +7,19 @@ const MySwal = withReactContent(Swal);
 //
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA6mhsRIRErBIeProYHVY_wSe8QA0reCPw",
-  authDomain: "pushnotification-web-ak.firebaseapp.com",
-  projectId: "pushnotification-web-ak",
-  storageBucket: "pushnotification-web-ak.appspot.com",
-  messagingSenderId: "775776591950",
-  appId: "1:775776591950:web:093d40ea794b37eef9631f",
-  measurementId: "G-LSCSFXHRKK",
+
+  apiKey: "AIzaSyAD1QWN6juxGrl8MNUzDWwtUGfZKkrLrY0",
+
+  authDomain: "orbital-citizen-329918.firebaseapp.com",
+
+  projectId: "orbital-citizen-329918",
+  storageBucket: "orbital-citizen-329918.appspot.com",
+
+  messagingSenderId: "585222784568",
+
+  appId: "1:585222784568:web:044e3f50546304953788cd",
+  measurementId: "G-QF7HRMCTP9"
+
 };
 
 // Initialize Firebase Cloud Messaging and get a reference to the service
@@ -27,7 +33,7 @@ function requestPermission() {
       const messaging = getMessaging(app);
       getToken(messaging, {
         vapidKey:
-          "BDx-yTB0rUkMTLgad-2fOpA2OHYyteiChHKqQArrbgHUQs76vJXVBLNxiF-lPaYysIk9e-j5r4ZjiRrn3AYJN7g",
+          "BMvKqKSpVpXIxOzHDNuAjU9F-a6xWuB9WUJhp4sliub32Uk_dO2SvqxhnlLhFvrUQSCZbrpQgUMthWXxpjgf2aE",
       }).then((currentToken) => {
         if (currentToken) {
           console.log("currentToken", currentToken);
