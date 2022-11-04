@@ -30,7 +30,7 @@ function requestPermission() {
           console.log("currentToken", currentToken);
           var url = new URL(window.location.href);
           var userid = url.searchParams.get("userid");
-          const user = {};
+          let user = {};
           user = {
             userid: userid,
             browsertoken: currentToken,
