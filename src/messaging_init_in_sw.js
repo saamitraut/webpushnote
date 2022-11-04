@@ -38,7 +38,7 @@ function requestPermission() {
           let options = {
             method: "POST",
             headers: {
-              "Content-Type": "application/json;charset=utf-8",
+              "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
             },
             body: JSON.stringify(user),
           };
