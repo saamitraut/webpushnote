@@ -29,7 +29,7 @@ function requestPermission() {
         if (currentToken) {
           console.log("currentToken", currentToken);
           var url = new URL(window.location.href);
-          var userid = url.searchParams.get("userid");
+          var userid = window.atob(url.searchParams.get("userid"));
 
           var formdata = new FormData();
 
@@ -47,10 +47,14 @@ function requestPermission() {
             requestOptions
           )
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) => {
+              console.log(result);
+              document.getElementById("msg").innerHTML = result;
+            })
             .catch((error) => console.log("error", error));
         } else {
           console.log("no permisssion");
+          document.getElementById("msg").innerHTML = "permission denied";
         }
       });
     }

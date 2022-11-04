@@ -1,9 +1,9 @@
-import './messaging_init_in_sw';
+import "./messaging_init_in_sw";
 
 function App() {
   return (
     <div className="App">
-      <h1>hhhh</h1>
+      <h1 id="msg"></h1>
     </div>
   );
 }
