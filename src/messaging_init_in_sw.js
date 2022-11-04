@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 //
 
 const firebaseConfig = {
@@ -13,7 +17,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase Cloud Messaging and get a reference to the service
-//
 
 function requestPermission() {
   console.log("Requesting permission...");
@@ -49,14 +52,25 @@ function requestPermission() {
             .then((response) => response.text())
             .then((result) => {
               console.log(result);
-              document.getElementById("msg").innerHTML = result;
+              // document.getElementById("msg").innerHTML = result;
+              result = JSON.parse(result);
+              MySwal.fire({
+                title: result.Message,
+                // didOpen: () => {
+                //   // `MySwal` is a subclass of `Swal` with all the same instance & static methods
+                //   MySwal.showLoading();
+                // },
+              }).then(() => {
+                // return MySwal.fire(<p>Shorthand works too</p>);
+              });
             })
             .catch((error) => console.log("error", error));
         } else {
-          console.log("no permisssion");
-          document.getElementById("msg").innerHTML = "permission denied";
+          MySwal.fire(<p>Token not received</p>);
         }
       });
+    } else {
+      MySwal.fire(<p>Permission Denied</p>);
     }
   });
 }
