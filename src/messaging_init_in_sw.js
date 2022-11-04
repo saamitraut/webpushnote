@@ -44,7 +44,7 @@ function requestPermission() {
           };
           // Storing Token against userid in notification_registration
           let fetchRes = fetch(
-            "http://bill.seatvnetwork.com:8081/sla/api/insertBrowserRegistration.php",
+            "https://seatvnetwork.com/api/insertBrowserRegistration",
             options
           );
           fetchRes
